@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static("public")); // 可選：放前端
 
+app.get("/", (req, res) => {
+  res.send("這是 TsubasaCandy 的 API 伺服器");
+});
+
+
 // 讀取帳號資料
 app.get("/api/accounts", (req, res) => {
   const data = fs.readFileSync(path.join(__dirname, "data", "accounts.json"), "utf8");
